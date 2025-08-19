@@ -80,7 +80,9 @@ export class UserController {
   })
   @Roles('users:read')
   @Get(':id')
-  async getById(@Param('id', new ParseUUIDPipe()) id: string) {}
+  async getById(@Param('id', new ParseUUIDPipe()) id: string) {
+    return await this.userService.getById(id);
+  }
 
   @ApiOperation({ summary: 'Update user by ID' })
   @ApiNotFoundResponse({

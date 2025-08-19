@@ -1,4 +1,4 @@
-import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FindOptionsWhere, ILike, In, Repository } from 'typeorm';
 import { Role } from '../entity/role.entity';
@@ -12,11 +12,7 @@ export class RoleRepository {
   ) {}
 
   async create(role: Role): Promise<Role> {
-    try {
-      return await this.db.save(role);
-    } catch (error) {
-      throw new InternalServerErrorException('Database error on role creation');
-    }
+    return await this.db.save(role);
   }
 
   async createMany(role: Role[]): Promise<Role[]> {
