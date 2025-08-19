@@ -16,7 +16,7 @@ REST API with NestJS framework and postgreSQL database
 Download this project:
 
 ```shell script
-git clone https://github.com/HasanNugroho/user-transaction-api.git
+git clone https://github.com/HasanNugroho/nest-core.git
 ```
 
 ### Manual Installation
