@@ -1,0 +1,102 @@
+{
+    "roles": [
+        {
+            "name": "super_admin",
+            "description": "Full access ke semua modul (user, finance, konfigurasi, laporan, IOT, machine, outlet, QRIS)",
+            "isDefault": false,
+            "permissions": [
+                "manage:system"
+            ]
+        },
+        {
+            "name": "super_finance",
+            "description": "Full access modul keuangan (reporting by machine, outlet, transaction)",
+            "isDefault": false,
+            "permissions": [
+                "finance:create",
+                "finance:read",
+                "finance:update",
+                "finance:delete",
+                "reports:view_by_machine",
+                "reports:view_by_outlet",
+                "reports:view_transactions",
+                "reports:export_pdf",
+                "dashboard:view_financial_status"
+            ]
+        },
+        {
+            "name": "super_configurator",
+            "description": "Full access konfigurasi machine, outlet, QRIS payment, IOT, harga mesin",
+            "isDefault": false,
+            "permissions": [
+                "machines:manage",
+                "outlets:manage",
+                "qris:manage",
+                "iot:manage",
+                "prices:manage"
+            ]
+        },
+        {
+            "name": "admin_owner",
+            "description": "Full access semua modul kecuali konfigurasi sistem inti (machine, outlet, harga, QRIS)",
+            "isDefault": true,
+            "permissions": [
+                "users:create",
+                "users:read",
+                "users:update",
+                "users:delete",
+                "users:activate",
+                "users:deactivate",
+                "roles:create",
+                "roles:read",
+                "roles:update",
+                "roles:delete",
+                "roles:assign",
+                "roles:unassign",
+                "finance:create",
+                "finance:read",
+                "finance:update",
+                "finance:delete",
+                "reports:view_summary",
+                "reports:view_by_machine",
+                "reports:view_by_outlet",
+                "reports:view_transactions",
+                "reports:export_pdf",
+                "dashboard:view",
+                "dashboard:view_financial_status",
+                "dashboard:view_notifications"
+            ]
+        },
+        {
+            "name": "finance",
+            "description": "Akses terbatas ke laporan keuangan: by machine, by outlet, by transaction",
+            "isDefault": false,
+            "permissions": [
+                "reports:view_by_machine",
+                "reports:view_by_outlet",
+                "reports:view_transactions",
+                "dashboard:view_financial_status"
+            ]
+        },
+        {
+            "name": "customer_service",
+            "description": "Akses terbatas: on/off machine, laporan machine (limit tertentu), laporan transaksi (limit tertentu)",
+            "isDefault": false,
+            "permissions": [
+                "machines:on_off",
+                "reports:view_by_machine_limited",
+                "reports:view_transactions_limited"
+            ]
+        },
+        {
+            "name": "customer",
+            "description": "Login untuk manage profil, melihat riwayat transaksi pribadi",
+            "isDefault": false,
+            "permissions": [
+                "profile:read",
+                "profile:update",
+                "transactions:read"
+            ]
+        }
+    ]
+}
